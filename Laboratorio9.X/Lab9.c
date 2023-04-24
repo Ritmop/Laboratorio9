@@ -1,13 +1,13 @@
 /* 
- * File:   Lab8.c
+ * File:   Lab9.c
  * Device: PIC16F887
  * Author: Judah Pérez - 21536
  *Compiler: XC8 (v2.40)
  * 
- * Program: UART Serial Com
+ * Program: EEPROM
  * Hardware:
  * 
- * Created: April 17, 2023
+ * Created: April 24, 2023
  * Last updated:
  */
 
@@ -36,18 +36,14 @@
 
 /*----------------------- GLOBAL VARIABLES & CONSTANTS -----------------------*/
 #define _XTAL_FREQ 8000000  //Constante para delay
-
-uint8_t ADval; //Analog-Digital converted value
-uint8_t valid = 0;
         
 /*-------------------------------- PROTOTYPES --------------------------------*/
 void setup(void);
 void config_ADC(void);
-void initUART(void);
+
+void ioc_portB(void);
 
 void potRead(void);
-void outputVal(void);
-void SerialPrint(char string[], int lenght);
 
 /*------------------------------- RESET VECTOR -------------------------------*/
 
@@ -55,13 +51,24 @@ void SerialPrint(char string[], int lenght);
 void __interrupt() isr(void){
     if(ADIF){
         //ADC
-        ADval = ADRESH;
+        PORTC = ADRESH;
         ADIF = 0;   //Reset flag        
+    }
+    if(RBIF){
+        ioc_portB();
+        RBIF = 0;
     }
     return;
 }
 
 /*--------------------------- INTERRUPT SUBROUTINES --------------------------*/
+void ioc_portB(void){
+    if(!RB1){
+        
+    }        
+    else if(!RB0)
+        SLEEP();
+}
 
 /*---------------------------------- TABLES ----------------------------------*/
 
@@ -71,49 +78,32 @@ void __interrupt() isr(void){
 int main(void) {
     setup();
     config_ADC();
-    initUART();
-    RA1 = 0;
     while(1){
         //Loop
-        valid = 0;       
-        //Mostrar mensaje
-        SerialPrint("\r1. Leer Pot \r2. Enviar ASCII\r",30);
-        while(!valid){
-            //Recolectar input
-            if(BAUDCTLbits.RCIDL == 1){
-                //Verificar input
-                PORTD = RCREG;
-                    if(PORTD == '1' || PORTD == '2')
-                        valid = 1;
-                    else
-                        SerialPrint("El caracter ingresado no  es valido.\r",37);                
-            }
-        }
-        
-        if(PORTD == '1'){
-            potRead(); //Capture pot value
-            RA0 = 1; //Show pot value on display
-            SerialPrint("El valor del potenciometro es: ",31);
-        }
-        if(PORTD == '2'){
-            potRead(); //Capture pot value
-            RA0 = 0; //Show pot value on PORTB
-        }
-        outputVal();  //Display value
+        potRead();
+        PORTE++;
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/
 void setup(void){
    //I/O CONFIG
     ANSEL = 0b1;
-    TRISAbits.TRISA0 = 1; //RA0 as analog input
-    TRISAbits.TRISA1 = 0; //RA1 as digital output    
-    ANSELH = 0;
+    ANSELH = 0; //RA0 as analog
     
-    TRISD = 0;  //ASCII Output
-    PORTD = 0;
-    TRISB = 0;  //ASCII Output
+    TRISA = 0b1; //RA0 input pot
+    TRISB = 0b111; //RB0-RB2 input buttons
+    
+    TRISC = 0;  //Pot read output
+    PORTC = 0;
+    PORTA = 0;
     PORTB = 0;
+    
+    TRISE = 0;
+    PORTE = 0;
+    
+    //PORTB weak pull-up
+    nRBPU = 0;   //Enable PORTB pull-up
+    WPUB = 0b111;//on RB0 - RB2
 
     //OSCILLATOR CONFIG
     OSCCONbits.IRCF = 0b111;  //Internal clock frequency 8MHz
@@ -121,8 +111,11 @@ void setup(void){
     
     //INTERRUPT CONFIG
     GIE  = 1;   //Global Interrupt Enable
-    PEIE = 1;
-    PIE1bits.ADIE = 1;  //ADC Interrupt Enable
+    RBIE = 1;   //PORTB Change Interrupt Enable
+    IOCB = 0b111;
+    
+    PEIE = 1;   //Peripheral Interrupt Enable
+    PIE1bits.ADIE = 1;   //ADC Interrupt Enable
     
     return;
 }
@@ -139,55 +132,10 @@ void config_ADC(void){
     return;
 }
 
-void initUART(void){
-    //12.1.1.6 Asynchronous Transmission Set-up
-    //12.1.2.8 Asynchronous Reception Set-up
-    //Boud Rate = 9600 / %Error = 0.16%
-    SPBRG = 12;
-    SPBRGH = 0;
-    BRGH = 0;   //TABLE 12-3: BAUD RATE FORMULAS
-    BRG16 = 0;  //8bit boud rate generator
-    //Asynchronous serial port
-    SYNC = 0;
-    SPEN = 1;
-    //Enable transmission
-    TXEN = 1;
-    TXIF = 0;   //Clear flag
-    //Enable reception
-    CREN = 1;
-    return;
-}
-
 void potRead(void){    
     if (ADCON0bits.GO == 0)
         ADCON0bits.GO = 1;
-    __delay_us(5);
+    __delay_us(50);
     //Value stored on interrupt
     return;
-}
-
-void outputVal(void){
-    if(RA1 == 0)    //Display on PORTB
-        PORTB = ADval;
-    else{ //Display on terminal
-        if(TXSTAbits.TRMT == 1){                    
-            TXREG = ADval;
-        }
-    }       
-    return;
-}
-
-void SerialPrint(char string[], int lenght){
-    int i = 0;
-    while(i <= lenght){
-        __delay_ms(5);
-        if(TXSTAbits.TRMT == 1){
-            TXREG = string[i];
-            i++;
-        }
-    }
-    if(TXSTAbits.TRMT == 1)
-        TXREG = '\n';   //Send null char to end string4
-    return;
-    __delay_ms(100);
 }
