@@ -68,7 +68,7 @@ void ioc_portB(void){
     if(!RB0){
         while(!RB0);
         SLEEP();
-        IOCB = 0b011;   //IOCB only for wake-up button
+        IOCB = 0b010;   //IOCB only for wake-up button
     }
     
     if(!RB1){

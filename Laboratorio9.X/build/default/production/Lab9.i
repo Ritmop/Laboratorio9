@@ -2864,7 +2864,7 @@ void ioc_portB(void){
     if(!RB0){
         while(!RB0);
         __asm("sleep");
-        IOCB = 0b011;
+        IOCB = 0b010;
     }
 
     if(!RB1){

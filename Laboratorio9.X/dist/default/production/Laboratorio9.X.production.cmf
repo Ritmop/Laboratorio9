@@ -25,7 +25,7 @@ maintext CODE 0 88 88 19 2 1
 cstackCOMMON COMMON 1 70 70 6 1 1
 intentry CODE 0 4 4 8 2 1
 config CONFIG 4 2007 2007 2 2 1
-$C:\Users\judah\AppData\Local\Temp\xcAsbro.o
+$C:\Users\judah\AppData\Local\Temp\xcAs1is.o
 idloc IDLOC 5 2000 2000 4 2 1
 reset_vec CODE 0 0 0 3 2 1
 end_init CODE 0 C C 3 2 1
@@ -74,11 +74,11 @@ STRING E0-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Laboratorio9.X.production.o
-F cinit CODE >505:C:\Users\judah\AppData\Local\Temp\xcAsbro.s
-F cinit CODE >508:C:\Users\judah\AppData\Local\Temp\xcAsbro.s
-F cinit CODE >514:C:\Users\judah\AppData\Local\Temp\xcAsbro.s
-F cinit CODE >516:C:\Users\judah\AppData\Local\Temp\xcAsbro.s
-10 cinit CODE >517:C:\Users\judah\AppData\Local\Temp\xcAsbro.s
+F cinit CODE >505:C:\Users\judah\AppData\Local\Temp\xcAs1is.s
+F cinit CODE >508:C:\Users\judah\AppData\Local\Temp\xcAs1is.s
+F cinit CODE >514:C:\Users\judah\AppData\Local\Temp\xcAs1is.s
+F cinit CODE >516:C:\Users\judah\AppData\Local\Temp\xcAs1is.s
+10 cinit CODE >517:C:\Users\judah\AppData\Local\Temp\xcAs1is.s
 4 intentry CODE >53:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio9\Laboratorio9.X\Lab9.c
 D3 text7 CODE >175:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio9\Laboratorio9.X\Lab9.c
 D4 text7 CODE >177:C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio9\Laboratorio9.X\Lab9.c
@@ -187,17 +187,17 @@ _RBIE 5B 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 _RBIF 58 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 _WREN C62 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\judah\AppData\Local\Temp\xcAsbro.o
+___sp 0 0 STACK 2 stack C:\Users\judah\AppData\Local\Temp\xcAs1is.o
 _main 110 0 CODE 0 maintext dist/default/production\Laboratorio9.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
-start 18 0 CODE 0 init C:\Users\judah\AppData\Local\Temp\xcAsbro.o
+start 18 0 CODE 0 init C:\Users\judah\AppData\Local\Temp\xcAs1is.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAsbro.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAsbro.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAsbro.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAsbro.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAsbro.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAsbro.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAs1is.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAs1is.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAs1is.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAs1is.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAs1is.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\judah\AppData\Local\Temp\xcAs1is.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -208,10 +208,10 @@ _ANSELH 189 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 __end_of_EE_read 1C0 0 CODE 0 text7 dist/default/production\Laboratorio9.X.production.o
 _EECON2 18D 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\judah\AppData\Local\Temp\xcAsbro.o
-___stacklo 0 0 ABS 0 - C:\Users\judah\AppData\Local\Temp\xcAsbro.o
+___stackhi 0 0 ABS 0 - C:\Users\judah\AppData\Local\Temp\xcAs1is.o
+___stacklo 0 0 ABS 0 - C:\Users\judah\AppData\Local\Temp\xcAs1is.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Laboratorio9.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\judah\AppData\Local\Temp\xcAsbro.o
+___int_sp 0 0 STACK 2 stack C:\Users\judah\AppData\Local\Temp\xcAs1is.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -263,7 +263,7 @@ __end_of_ioc_portB 84 0 CODE 0 text5 dist/default/production\Laboratorio9.X.prod
 __end_of_isr 110 0 CODE 0 text4 dist/default/production\Laboratorio9.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 _EE_read 1A6 0 CODE 0 text7 dist/default/production\Laboratorio9.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\judah\AppData\Local\Temp\xcAsbro.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\judah\AppData\Local\Temp\xcAs1is.o
 _ioc_portB 26 0 CODE 0 text5 dist/default/production\Laboratorio9.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Laboratorio9.X.production.o
 __pmaintext 110 0 CODE 0 maintext dist/default/production\Laboratorio9.X.production.o

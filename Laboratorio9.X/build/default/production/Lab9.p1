@@ -319,7 +319,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Lab9.c: 31:     if(!RB0){
 [p x LVP  =  OFF         ]
 "34
-[; ;Lab9.c: 34:         IOCB = 0b011;
+[; ;Lab9.c: 34:         IOCB = 0b010;
 [p x BOR4V  =  BOR40V    ]
 "35
 [; ;Lab9.c: 35:     }
@@ -388,7 +388,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" sleep ;# ">
 "71
 [; ;Lab9.c: 71:     PORTC = 0;
-[e = _IOCB -> -> 3 `i `uc ]
+[e = _IOCB -> -> 2 `i `uc ]
 "72
 [; ;Lab9.c: 72:     TRISD = 0;
 }
