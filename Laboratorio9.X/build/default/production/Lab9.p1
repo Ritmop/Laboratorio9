@@ -4,7 +4,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4135 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\PIC16F887.h
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
 "44 Lab9.c
-[; ;Lab9.c: 44:     }
+[; ;Lab9.c: 44: 
 [v _ioc_portB `(v ~T0 @X0 0 ef ]
 "3592 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\PIC16F887.h
 [v _ADIF `Vb ~T0 @X0 0 e@102 ]
@@ -12,34 +12,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "1239
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
-"4108
-[v _RB0 `Vb ~T0 @X0 0 e@48 ]
-"2417
-[v _IOCB `Vuc ~T0 @X0 0 e@150 ]
 "4111
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
+"2417
+[v _IOCB `Vuc ~T0 @X0 0 e@150 ]
 "4114
 [v _RB2 `Vb ~T0 @X0 0 e@50 ]
 "47 Lab9.c
-[; ;Lab9.c: 47: 
+[; ;Lab9.c: 47:     setup();
 [v _EE_write `(v ~T0 @X0 0 ef2`uc`uc ]
 "353 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\PIC16F887.h
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "48 Lab9.c
-[; ;Lab9.c: 48: 
+[; ;Lab9.c: 48:     config_ADC();
 [v _EE_read `(uc ~T0 @X0 0 ef1`uc ]
 [p mainexit ]
 "41
-[; ;Lab9.c: 41:     if(!RB2){
+[; ;Lab9.c: 41: 
 [v _setup `(v ~T0 @X0 0 ef ]
 "42
-[; ;Lab9.c: 42:         EE_write(0x15,PORTC);
+[; ;Lab9.c: 42: 
 [v _config_ADC `(v ~T0 @X0 0 ef ]
 "46
-[; ;Lab9.c: 46: 
+[; ;Lab9.c: 46: int main(void) {
 [v _potRead `(v ~T0 @X0 0 ef ]
 "415 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\PIC16F887.h
 [v _PORTE `Vuc ~T0 @X0 0 e@9 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"4108 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\PIC16F887.h
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
 "3388
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3450
@@ -75,8 +79,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
 "4252
 [v _SCS `Vb ~T0 @X0 0 e@1144 ]
-"3901
-[v _GIE `Vb ~T0 @X0 0 e@95 ]
 "4132
 [v _RBIE `Vb ~T0 @X0 0 e@91 ]
 "4045
@@ -89,6 +91,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S62 . . ]
 "1719
 [v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
+"3901
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
 "2984
 [s S116 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S116 . . VCFG0 VCFG1 . ADFM ]
@@ -114,11 +118,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S44 . . . . . ]
 "1277
 [v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
-[v F36 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h
-[v __delay `JF36 ~T0 @X0 0 e ]
-[p i __delay ]
-"3258 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\PIC16F887.h
+"3258
 [v _EEADR `Vuc ~T0 @X0 0 e@269 ]
 "3251
 [v _EEDAT `Vuc ~T0 @X0 0 e@268 ]
@@ -316,37 +316,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Lab9.c: 30: void ioc_portB(void){
 [p x FCMEN  =  OFF       ]
 "31
-[; ;Lab9.c: 31:     if(!RB0){
+[; ;Lab9.c: 31:     if(!RB1){
 [p x LVP  =  OFF         ]
 "34
-[; ;Lab9.c: 34:         IOCB = 0b010;
+[; ;Lab9.c: 34: 
 [p x BOR4V  =  BOR40V    ]
 "35
-[; ;Lab9.c: 35:     }
+[; ;Lab9.c: 35:     if(!RB2){
 [p x WRT  =  OFF         ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
 "53
-[; ;Lab9.c: 53:     setup();
+[; ;Lab9.c: 53:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
 "54
-[; ;Lab9.c: 54:     config_ADC();
+[; ;Lab9.c: 54: 
 [e $ ! _RBIF 144  ]
 {
 "55
-[; ;Lab9.c: 55:     while(1){
-[e = _RBIF -> -> 0 `i `b ]
-"56
-[; ;Lab9.c: 56: 
+[; ;Lab9.c: 55:         if(!RB0){
 [e ( _ioc_portB ..  ]
+"56
+[; ;Lab9.c: 56:             IOCB = 0b010;
+[e = _RBIF -> -> 0 `i `b ]
 "57
-[; ;Lab9.c: 57:         potRead();
+[; ;Lab9.c: 57:             __asm("sleep");
 }
 [e :U 144 ]
 "58
-[; ;Lab9.c: 58:         PORTE++;
+[; ;Lab9.c: 58:         }
 [e $ ! _ADIF 145  ]
 {
 "60
@@ -374,86 +374,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "68
 [; ;Lab9.c: 68:     TRISB = 0b111;
-[e $ ! ! _RB0 147  ]
+[e $ ! ! _RB1 147  ]
 {
 "69
 [; ;Lab9.c: 69: 
-[e $U 148  ]
-[e :U 149 ]
-[e :U 148 ]
-[e $ ! _RB0 149  ]
-[e :U 150 ]
+[e = _IOCB -> -> 6 `i `uc ]
 "70
 [; ;Lab9.c: 70:     TRISC = 0;
-[; <" sleep ;# ">
-"71
-[; ;Lab9.c: 71:     PORTC = 0;
-[e = _IOCB -> -> 2 `i `uc ]
-"72
-[; ;Lab9.c: 72:     TRISD = 0;
 }
 [e :U 147 ]
+"72
+[; ;Lab9.c: 72:     TRISD = 0;
+[e $ ! ! _RB2 148  ]
+{
+"73
+[; ;Lab9.c: 73:     PORTD = 0;
+[e ( _EE_write (2 , -> -> 21 `i `uc -> _PORTC `uc ]
 "74
 [; ;Lab9.c: 74:     PORTA = 0;
-[e $ ! ! _RB1 151  ]
-{
+[e = _PORTD -> ( _EE_read (1 -> -> 21 `i `uc `uc ]
 "75
 [; ;Lab9.c: 75:     PORTB = 0;
-[e = _IOCB -> -> 7 `i `uc ]
+}
+[e :U 148 ]
 "76
 [; ;Lab9.c: 76: 
-}
-[e :U 151 ]
-"78
-[; ;Lab9.c: 78:     PORTE = 0;
-[e $ ! ! _RB2 152  ]
-{
-"79
-[; ;Lab9.c: 79: 
-[e ( _EE_write (2 , -> -> 21 `i `uc -> _PORTC `uc ]
-"80
-[; ;Lab9.c: 80: 
-[e = _PORTD -> ( _EE_read (1 -> -> 21 `i `uc `uc ]
-"81
-[; ;Lab9.c: 81:     nRBPU = 0;
-}
-[e :U 152 ]
-"82
-[; ;Lab9.c: 82:     WPUB = 0b111;
 [e :UE 146 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"89
-[; ;Lab9.c: 89:     GIE = 1;
+"83
+[; ;Lab9.c: 83: 
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"90
-[; ;Lab9.c: 90:     RBIE = 1;
+"84
+[; ;Lab9.c: 84: 
 [e ( _setup ..  ]
-"91
-[; ;Lab9.c: 91:     IOCB = 0b111;
+"85
+[; ;Lab9.c: 85:     OSCCONbits.IRCF = 0b111;
 [e ( _config_ADC ..  ]
-"92
-[; ;Lab9.c: 92: 
-[e :U 155 ]
+"86
+[; ;Lab9.c: 86:     SCS = 1;
+[e :U 151 ]
 {
-"94
-[; ;Lab9.c: 94:     PIE1bits.ADIE = 1;
+"88
+[; ;Lab9.c: 88: 
 [e ( _potRead ..  ]
-"95
-[; ;Lab9.c: 95: 
+"89
+[; ;Lab9.c: 89:     RBIE = 1;
 [e ++ _PORTE -> -> 1 `i `Vuc ]
+"90
+[; ;Lab9.c: 90:     IOCB = 0b110;
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"92
+[; ;Lab9.c: 92:     PEIE = 1;
+[e $ ! ! _RB0 153  ]
+{
+"93
+[; ;Lab9.c: 93:     PIE1bits.ADIE = 1;
+[e = _IOCB -> -> 2 `i `uc ]
+"94
+[; ;Lab9.c: 94: 
+[; <" sleep ;# ">
+"95
+[; ;Lab9.c: 95:     GIE = 1;
+}
+[e :U 153 ]
 "96
 [; ;Lab9.c: 96:     return;
 }
-[e :U 154 ]
-[e $U 155  ]
-[e :U 156 ]
+[e :U 150 ]
+[e $U 151  ]
+[e :U 152 ]
 "97
 [; ;Lab9.c: 97: }
-[e :UE 153 ]
+[e :UE 149 ]
 }
 "99
 [; ;Lab9.c: 99: void config_ADC(void){
@@ -511,25 +507,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _SCS -> -> 1 `i `b ]
 "126
 [; ;Lab9.c: 126: 
-[e = _GIE -> -> 1 `i `b ]
+[e = _RBIE -> -> 1 `i `b ]
 "127
 [; ;Lab9.c: 127: 
-[e = _RBIE -> -> 1 `i `b ]
-"128
-[; ;Lab9.c: 128:     EECON2 = 0x55;
-[e = _IOCB -> -> 7 `i `uc ]
+[e = _IOCB -> -> 6 `i `uc ]
+"129
+[; ;Lab9.c: 129:     EECON2 = 0xAA;
+[e = _PEIE -> -> 1 `i `b ]
 "130
 [; ;Lab9.c: 130:     WR = 1;
-[e = _PEIE -> -> 1 `i `b ]
-"131
-[; ;Lab9.c: 131: 
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+"132
+[; ;Lab9.c: 132: 
+[e = _GIE -> -> 1 `i `b ]
 "133
 [; ;Lab9.c: 133:     __asm("sleep");
-[e $UE 157  ]
+[e $UE 154  ]
 "134
 [; ;Lab9.c: 134:     WREN = 0;
-[e :UE 157 ]
+[e :UE 154 ]
 }
 "136
 [; ;Lab9.c: 136: }
@@ -557,9 +553,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 "145
 [; ;Lab9.c: 145: }
-[e $UE 158  ]
+[e $UE 155  ]
 "146
-[e :UE 158 ]
+[e :UE 155 ]
 }
 "148
 [v _potRead `(v ~T0 @X0 1 ef ]
@@ -567,7 +563,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _potRead ]
 [f ]
 "149
-[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 160  ]
+[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 157  ]
 {
 "150
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
@@ -575,11 +571,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 "152
 }
-[e :U 160 ]
+[e :U 157 ]
 "154
-[e $UE 159  ]
+[e $UE 156  ]
 "155
-[e :UE 159 ]
+[e :UE 156 ]
 }
 "157
 [v _EE_write `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -607,9 +603,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "171
 [e = _WREN -> -> 0 `i `b ]
 "172
-[e $UE 161  ]
+[e $UE 158  ]
 "173
-[e :UE 161 ]
+[e :UE 158 ]
 }
 "175
 [v _EE_read `(uc ~T0 @X0 1 ef1`uc ]
@@ -625,7 +621,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RD -> -> 1 `i `b ]
 "181
 [e ) -> _EEDAT `uc ]
-[e $UE 162  ]
+[e $UE 159  ]
 "182
-[e :UE 162 ]
+[e :UE 159 ]
 }

@@ -2848,8 +2848,8 @@ char EE_read (char addr);
 
 void __attribute__((picinterrupt(("")))) isr(void){
     if(RBIF){
-        RBIF = 0;
         ioc_portB();
+        RBIF = 0;
     }
     if(ADIF){
 
@@ -2861,14 +2861,8 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 
 void ioc_portB(void){
-    if(!RB0){
-        while(!RB0);
-        __asm("sleep");
-        IOCB = 0b010;
-    }
-
     if(!RB1){
-        IOCB = 0b111;
+        IOCB = 0b110;
     }
 
     if(!RB2){
@@ -2889,6 +2883,12 @@ int main(void) {
 
         potRead();
         PORTE++;
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+        if(!RB0){
+            IOCB = 0b010;
+            __asm("sleep");
+        }
     }
 }
 
@@ -2919,13 +2919,13 @@ void setup(void){
     SCS = 1;
 
 
-    GIE = 1;
     RBIE = 1;
-    IOCB = 0b111;
+    IOCB = 0b110;
 
     PEIE = 1;
     PIE1bits.ADIE = 1;
 
+    GIE = 1;
     return;
 }
 

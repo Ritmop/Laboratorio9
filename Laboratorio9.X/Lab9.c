@@ -52,8 +52,8 @@ char EE_read (char addr);
 /*----------------------------- INTERRUPT VECTOR -----------------------------*/
 void __interrupt() isr(void){
     if(RBIF){        
-        RBIF = 0;
         ioc_portB();
+        RBIF = 0;
     }
     if(ADIF){
         //ADC
@@ -65,14 +65,8 @@ void __interrupt() isr(void){
 
 /*--------------------------- INTERRUPT SUBROUTINES --------------------------*/
 void ioc_portB(void){
-    if(!RB0){
-        while(!RB0);
-        SLEEP();
-        IOCB = 0b010;   //IOCB only for wake-up button
-    }
-    
     if(!RB1){
-        IOCB = 0b111;   //Enable all IOCB
+        IOCB = 0b110;   //Enable all IOCB
     }
     
     if(!RB2){
@@ -93,6 +87,12 @@ int main(void) {
         //Loop
         potRead();
         PORTE++;
+        __delay_ms(10);
+        
+        if(!RB0){
+            IOCB = 0b010;   //IOCB only for wake-up button
+            SLEEP();
+        }
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/
@@ -123,13 +123,13 @@ void setup(void){
     SCS = 1;
     
     //INTERRUPT CONFIG
-    GIE  = 1;   //Global Interrupt Enable
     RBIE = 1;   //PORTB Change Interrupt Enable
-    IOCB = 0b111;
+    IOCB = 0b110;
     
     PEIE = 1;   //Peripheral Interrupt Enable
     PIE1bits.ADIE = 1;   //ADC Interrupt Enable
     
+    GIE  = 1;   //Global Interrupt Enable
     return;
 }
 
