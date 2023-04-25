@@ -11,35 +11,41 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"51 C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio9\Laboratorio9.X\Lab9.c
+"53 C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio9\Laboratorio9.X\Lab9.c
 [v _isr isr `II(v  1 e 1 0 ]
-"65
+"67
 [v _ioc_portB ioc_portB `(v  1 e 1 0 ]
-"78
+"89
 [v _main main `(i  1 e 2 0 ]
-"88
+"99
 [v _setup setup `(v  1 e 1 0 ]
-"123
+"136
 [v _config_ADC config_ADC `(v  1 e 1 0 ]
-"135
+"148
 [v _potRead potRead `(v  1 e 1 0 ]
+"157
+[v _EE_write EE_write `(v  1 e 1 0 ]
+"175
+[v _EE_read EE_read `(uc  1 e 1 0 ]
 "167 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\PIC16F887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "229
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "291
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"353
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "415
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
 "1239
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
-[s S120 . 1 `uc 1 ADON 1 0 :1:0 
+[s S134 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1277
-[s S125 . 1 `uc 1 . 1 0 :1:0 
+[s S139 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -48,23 +54,25 @@
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S134 . 1 `uc 1 . 1 0 :1:0 
+[s S148 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S137 . 1 `uc 1 . 1 0 :1:0 
+[s S151 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S140 . 1 `S120 1 . 1 0 `S125 1 . 1 0 `S134 1 . 1 0 `S137 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES140  1 e 1 @31 ]
+[u S154 . 1 `S134 1 . 1 0 `S139 1 . 1 0 `S148 1 . 1 0 `S151 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES154  1 e 1 @31 ]
 "1417
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1479
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1541
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1603
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1665
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S86 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S100 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -73,41 +81,49 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1719
-[u S94 . 1 `S86 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES94  1 e 1 @140 ]
-[s S55 . 1 `uc 1 SCS 1 0 :1:0 
+[u S108 . 1 `S100 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES108  1 e 1 @140 ]
+[s S70 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1883
-[s S61 . 1 `uc 1 . 1 0 :4:0 
+[s S76 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S66 . 1 `S55 1 . 1 0 `S61 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES66  1 e 1 @143 ]
+[u S81 . 1 `S70 1 . 1 0 `S76 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES81  1 e 1 @143 ]
 "2347
 [v _WPUB WPUB `VEuc  1 e 1 @149 ]
 "2417
 [v _IOCB IOCB `VEuc  1 e 1 @150 ]
-[s S105 . 1 `uc 1 . 1 0 :4:0 
+[s S119 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2992
-[u S111 . 1 `S105 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES111  1 e 1 @159 ]
+[u S125 . 1 `S119 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES125  1 e 1 @159 ]
+"3251
+[v _EEDAT EEDAT `VEuc  1 e 1 @268 ]
+"3258
+[v _EEADR EEADR `VEuc  1 e 1 @269 ]
 "3388
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3450
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"3545
+[v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
 "3592
 [v _ADIF ADIF `VEb  1 e 0 @102 ]
+"3889
+[v _EEPGD EEPGD `VEb  1 e 0 @3175 ]
 "3901
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "4045
@@ -116,41 +132,68 @@
 [v _RB0 RB0 `VEb  1 e 0 @48 ]
 "4111
 [v _RB1 RB1 `VEb  1 e 0 @49 ]
+"4114
+[v _RB2 RB2 `VEb  1 e 0 @50 ]
 "4132
 [v _RBIE RBIE `VEb  1 e 0 @91 ]
 "4135
 [v _RBIF RBIF `VEb  1 e 0 @88 ]
+"4183
+[v _RD RD `VEb  1 e 0 @3168 ]
 "4252
 [v _SCS SCS `VEb  1 e 0 @1144 ]
+"4633
+[v _WR WR `VEb  1 e 0 @3169 ]
+"4636
+[v _WREN WREN `VEb  1 e 0 @3170 ]
 "4669
 [v _nRBPU nRBPU `VEb  1 e 0 @1039 ]
-"78 C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio9\Laboratorio9.X\Lab9.c
+"89 C:\Users\judah\Desktop\Proyectos Varios\Programacion de uC\Laboratorio9\Laboratorio9.X\Lab9.c
 [v _main main `(i  1 e 2 0 ]
 {
-"86
+"97
 } 0
-"88
+"99
 [v _setup setup `(v  1 e 1 0 ]
 {
-"121
+"134
 } 0
-"135
+"148
 [v _potRead potRead `(v  1 e 1 0 ]
 {
-"141
+"155
 } 0
-"123
+"136
 [v _config_ADC config_ADC `(v  1 e 1 0 ]
 {
-"133
+"146
 } 0
-"51
+"53
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"62
+"64
 } 0
-"65
+"67
 [v _ioc_portB ioc_portB `(v  1 e 1 0 ]
 {
-"71
+"82
+} 0
+"157
+[v _EE_write EE_write `(v  1 e 1 0 ]
+{
+[v EE_write@addr addr `uc  1 a 1 wreg ]
+[v EE_write@addr addr `uc  1 a 1 wreg ]
+[v EE_write@data data `uc  1 p 1 0 ]
+"159
+[v EE_write@addr addr `uc  1 a 1 1 ]
+"173
+} 0
+"175
+[v _EE_read EE_read `(uc  1 e 1 0 ]
+{
+[v EE_read@addr addr `uc  1 a 1 wreg ]
+[v EE_read@addr addr `uc  1 a 1 wreg ]
+"177
+[v EE_read@addr addr `uc  1 a 1 0 ]
+"182
 } 0

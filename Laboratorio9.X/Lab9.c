@@ -44,30 +44,41 @@ void config_ADC(void);
 void ioc_portB(void);
 
 void potRead(void);
+void EE_write(char addr, char data);
+char EE_read (char addr);
 
 /*------------------------------- RESET VECTOR -------------------------------*/
 
 /*----------------------------- INTERRUPT VECTOR -----------------------------*/
 void __interrupt() isr(void){
+    if(RBIF){        
+        RBIF = 0;
+        ioc_portB();
+    }
     if(ADIF){
         //ADC
         PORTC = ADRESH;
         ADIF = 0;   //Reset flag        
-    }
-    if(RBIF){
-        ioc_portB();
-        RBIF = 0;
     }
     return;
 }
 
 /*--------------------------- INTERRUPT SUBROUTINES --------------------------*/
 void ioc_portB(void){
-    if(!RB1){
-        
-    }        
-    else if(!RB0)
+    if(!RB0){
+        while(!RB0);
         SLEEP();
+        IOCB = 0b011;   //IOCB only for wake-up button
+    }
+    
+    if(!RB1){
+        IOCB = 0b111;   //Enable all IOCB
+    }
+    
+    if(!RB2){
+        EE_write(0x15,PORTC);
+        PORTD = EE_read(0x15);
+    }    
 }
 
 /*---------------------------------- TABLES ----------------------------------*/
@@ -95,6 +106,8 @@ void setup(void){
     
     TRISC = 0;  //Pot read output
     PORTC = 0;
+    TRISD = 0;
+    PORTD = 0;
     PORTA = 0;
     PORTB = 0;
     
@@ -133,9 +146,37 @@ void config_ADC(void){
 }
 
 void potRead(void){    
-    if (ADCON0bits.GO == 0)
+    if (ADCON0bits.GO == 0){
+        __delay_us(50);
         ADCON0bits.GO = 1;
-    __delay_us(50);
+    }        
     //Value stored on interrupt
     return;
+}
+
+void EE_write(char addr, char data){
+    //Prepare to write
+    EEADR = addr;
+    EEDAT = data;
+    EEPGD = 0;  //Select data memory
+    WREN = 1;   //Write enable
+    //GIE = 0;    //Disable interrupts
+    //EEPROM Write sequence
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    WR = 1;
+    //GIE = 1;
+    
+    SLEEP();    //Wait for write completion
+    WREN = 0;   //Write disable    
+    return;
+}
+
+char EE_read (char addr){
+    //Prepare to read
+    EEADR = addr;
+    EEPGD = 0;  //Select data memory
+    RD = 1;     //Read enable
+    //Read memory
+    return EEDAT;    
 }

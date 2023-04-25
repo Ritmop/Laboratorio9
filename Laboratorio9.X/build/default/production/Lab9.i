@@ -2840,30 +2840,41 @@ void config_ADC(void);
 void ioc_portB(void);
 
 void potRead(void);
+void EE_write(char addr, char data);
+char EE_read (char addr);
 
 
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
+    if(RBIF){
+        RBIF = 0;
+        ioc_portB();
+    }
     if(ADIF){
 
         PORTC = ADRESH;
         ADIF = 0;
-    }
-    if(RBIF){
-        ioc_portB();
-        RBIF = 0;
     }
     return;
 }
 
 
 void ioc_portB(void){
-    if(!RB1){
-
-    }
-    else if(!RB0)
+    if(!RB0){
+        while(!RB0);
         __asm("sleep");
+        IOCB = 0b011;
+    }
+
+    if(!RB1){
+        IOCB = 0b111;
+    }
+
+    if(!RB2){
+        EE_write(0x15,PORTC);
+        PORTD = EE_read(0x15);
+    }
 }
 
 
@@ -2891,6 +2902,8 @@ void setup(void){
 
     TRISC = 0;
     PORTC = 0;
+    TRISD = 0;
+    PORTD = 0;
     PORTA = 0;
     PORTB = 0;
 
@@ -2929,9 +2942,37 @@ void config_ADC(void){
 }
 
 void potRead(void){
-    if (ADCON0bits.GO == 0)
+    if (ADCON0bits.GO == 0){
+        _delay((unsigned long)((50)*(8000000/4000000.0)));
         ADCON0bits.GO = 1;
-    _delay((unsigned long)((50)*(8000000/4000000.0)));
+    }
 
     return;
+}
+
+void EE_write(char addr, char data){
+
+    EEADR = addr;
+    EEDAT = data;
+    EEPGD = 0;
+    WREN = 1;
+
+
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    WR = 1;
+
+
+    __asm("sleep");
+    WREN = 0;
+    return;
+}
+
+char EE_read (char addr){
+
+    EEADR = addr;
+    EEPGD = 0;
+    RD = 1;
+
+    return EEDAT;
 }
